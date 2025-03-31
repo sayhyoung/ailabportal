@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>💡 윤선생 AI 실험실 💡</title>
+  <style>
+    /* 기본 리셋 및 폰트 스타일 */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8a7a7;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #333333;
+      color: #fafafa;
+      padding: 20px 10px;
+      text-align: center;
+    }
+    main {
+      padding: 20px;
+      max-width: 1000px;
+      margin: 20px auto;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+    footer img {
+      vertical-align: middle;
+      margin-left: 10px;
+    }
+        /* 서비스 소개 섹션 */
+    #service-intro {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    #service-intro h2 {
+      margin-bottom: 10px;
+    }
+    /* Quick Links 섹션 */
+    .quick-link-div {
+      background-color: #fdfdfd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .quick-links-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    /* 2열 레이아웃 */
+    .quick-buttons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      justify-items: center; /* 카드 자체를 수평 가운데 정렬 */
+    }
+    /* 카드 스타일 */
+    .card {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+      padding: 15px;
+      width: 100%;
+      max-width: 400px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    /* 좌측 원형 아이콘 */
+    .icon-circle {
+      min-width: 50px; 
+      min-height: 50px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #d9d9d9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+    }
+    .icon-circle img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+    /* 우측 텍스트 영역 */
+    .text-container {
+      display: flex;
+      flex-direction: column;
+    }
+    .text-container h3 {
+      margin: 0;
+      font-size: 16px;
+      color: #1c2b4c; /* 예시로 남색 계열 */
+      position: relative;
+      margin-bottom: 6px;
+    }
+    /* h3 아래 얇은 선 (이미지 참고) */
+    .text-container h3::after {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 2px;
+      background-color: #1c2b4c;
+      margin-top: 5px;
+    }
+    .text-container p {
+      margin: 0;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>💡 윤선생 AI 실험실 💡</h1>
+    <p>AI 기반 영어 학습 도구 </p>
+  </header>
+
+  <main>
+    <!-- 서비스 소개 섹션 -->
+    <section id="service-intro">
+      <h2>서비스 소개</h2>
+      <p>영어 학습에 도움을 줄 수 있는 다양한 도구를 AI 기반으로 만들었습니다.<br />
+         아래 카드(Quick Links)에서 원하는 도구를 선택하여 이용해보세요.</p>
+    </section>
+
+    <!-- Quick Links 섹션 -->
+    <section id="quick-links">
+      <div class="quick-link-div">
+        <div class="quick-links-title">Quick Links</div>
+        <div class="quick-buttons">
+          <!-- 카드 1: 영어 단어 어원봇 -->
+          <div class="card" onclick="location.href='https://sayhyoung.github.io/wordorigin/'">
+            <div class="icon-circle">
+              <!-- 아이콘은 원하는 이미지를 사용하거나 <svg>를 사용하세요 -->
+              <img src="icon1.png" alt="어원 아이콘" />
+            </div>
+            <div class="text-container">
+              <h3>영어 단어 어원봇</h3>
+              <p>입력한 단어의 어원을 알려주는 서비스</p>
+            </div>
+          </div>
+          
+          <!-- 카드 2: 영어 지문 기반 문항 생성봇 -->
+          <div class="card" onclick="location.href='https://sayhyoung.github.io/readingquiz/'">
+            <div class="icon-circle">
+              <img src="icon2.png" alt="문항 아이콘" />
+            </div>
+            <div class="text-container">
+              <h3>독해 문항 생성봇</h3>
+              <p>영어 지문을 입력하면 수능 유형의 문항 생성</p>
+            </div>
+          </div>
+
+          <!-- 카드 3: 영어 지문 기반 액티비티 생성봇 -->
+          <div class="card" onclick="location.href='https://sayhyoung.github.io/readingactivity/'">
+            <div class="icon-circle">
+              <img src="icon3.png" alt="액티비티 아이콘" />
+            </div>
+            <div class="text-container">
+              <h3>액티비티 생성봇</h3>
+              <p>영어 지문을 익히기 위한 다양한 액티비티 생성</p>
+            </div>
+          </div>
+
+          <!-- 카드 4: 영어 문법 요소 예문 생성봇 -->
+          <div class="card" onclick="alert('서비스 준비 중입니다')">
+            <div class="icon-circle">
+              <img src="icon4.png" alt="문법 예문 아이콘" />
+            </div>
+            <div class="text-container">
+              <h3>문법 예제봇(준비 중)</h3>
+              <p>원하는 문법 요소에 대한 문항 생성</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 윤선생 AI 실험실. All rights reserved.</p>
+    <img src="company-logo.png" alt="회사 로고" style="height:40px;">
+  </footer>
+</body>
+</html>
