@@ -4,9 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>💡 윤선생 AI 실험실 💡</title>
+  <script>
+    // 인증 미통과 시 본문 즉시 가림 (깜빡임 방지)
+    if (localStorage.getItem('yoonai_auth_ok') !== '1') {
+      document.documentElement.classList.add('locked');
+    }
+  </script>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div id="auth-gate" aria-hidden="false">
+    <div class="auth-card">
+      <h1 class="auth-logo">💡 윤선생 AI 실험실 💡</h1>
+      <p class="auth-subtitle">AI 기반 영어 학습 솔루션</p>
+      <p class="auth-prompt">4자리 입장 코드를 입력해주세요</p>
+      <form class="auth-form" onsubmit="event.preventDefault();">
+        <input class="auth-digit" type="tel" inputmode="numeric" maxlength="1" autocomplete="off" aria-label="1번째 자리" />
+        <input class="auth-digit" type="tel" inputmode="numeric" maxlength="1" autocomplete="off" aria-label="2번째 자리" />
+        <input class="auth-digit" type="tel" inputmode="numeric" maxlength="1" autocomplete="off" aria-label="3번째 자리" />
+        <input class="auth-digit" type="tel" inputmode="numeric" maxlength="1" autocomplete="off" aria-label="4번째 자리" />
+      </form>
+      <p class="auth-error" role="alert">&nbsp;</p>
+      <p class="auth-hint">최초 1회 입력 후에는 자동 로그인됩니다.</p>
+    </div>
+  </div>
+
   <header>
     <h1>💡 윤선생 AI 실험실 💡</h1>
     <p>AI 기반 영어 학습 솔루션</p>
@@ -91,6 +113,7 @@
     <img src="src/company-logo.png" alt="회사 로고" style="height:40px;">
   </footer>
 
+  <script src="auth.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>
