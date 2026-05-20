@@ -85,17 +85,18 @@ main {
   color: var(--text-dark);
 }
 
-/* 반응형 그리드 레이아웃 */
+/* 반응형 그리드 레이아웃 (6 column trick: 카드는 span 2) */
 .quick-buttons {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 25px;
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 /* 카드 스타일 */
 .card {
+  grid-column: span 2;
   display: flex;
   align-items: center;
   background-color: var(--card-bg);
@@ -104,13 +105,23 @@ main {
   padding: 20px;
   cursor: pointer;
   transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 /* 카드 호버(Hover) 효과: 부드럽게 확대 */
 .card:hover {
   transform: scale(1.03);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* 5개 카드일 때: 두 번째 줄의 4,5번째 카드를 진짜 가운데로 (col 2-3, 4-5) */
+.card:nth-child(4):nth-last-child(2) {
+  grid-column: 2 / span 2;
+}
+
+/* 4개 카드일 때: 두 번째 줄의 단독 카드를 진짜 가운데로 (col 3-4) */
+.card:nth-child(4):last-child {
+  grid-column: 3 / span 2;
 }
 
 /* 좌측 원형 아이콘 */
@@ -192,17 +203,44 @@ footer img {
   opacity: 0.8;
 }
 
-/* 모바일 화면 대응 */
+/* 태블릿: 2열 (4 column / 카드 span 2) */
+@media (max-width: 960px) {
+  .quick-buttons {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 800px;
+  }
+
+  /* 데스크탑 가운데 정렬 규칙 해제 (span 2는 .card에서 상속) */
+  .card:nth-child(4):nth-last-child(2),
+  .card:nth-child(4):last-child {
+    grid-column: span 2;
+  }
+
+  /* 5개일 때 3행 단독 카드(5번째)를 가운데로 (col 2-3) */
+  .card:nth-child(5):last-child {
+    grid-column: 2 / span 2;
+  }
+}
+
+/* 모바일: 1열 */
 @media (max-width: 600px) {
   .quick-buttons {
     grid-template-columns: 1fr;
+  }
+
+  /* 모바일에선 카드 span 무효화 + 가운데 정렬 규칙 해제 */
+  .card,
+  .card:nth-child(4):nth-last-child(2),
+  .card:nth-child(4):last-child,
+  .card:nth-child(5):last-child {
+    grid-column: auto;
   }
 
   main {
     padding: 15px;
     margin: 20px auto;
   }
-  
+
   header {
     padding: 20px 15px;
   }

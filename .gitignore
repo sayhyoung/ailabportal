@@ -13,6 +13,9 @@ firebase-debug.*.log*
 # Claude Code local settings
 .claude/
 
+# Original (pre-resize) image backups
+.image-backup-original/
+
 # Firebase config
 
 # Uncomment this if you'd like others to create their own Firebase project.
