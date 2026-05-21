@@ -16,6 +16,9 @@ firebase-debug.*.log*
 # Original (pre-resize) image backups
 .image-backup-original/
 
+# Extracted design system handoff bundles (reference only)
+.theme-montage/
+
 # Firebase config
 
 # Uncomment this if you'd like others to create their own Firebase project.

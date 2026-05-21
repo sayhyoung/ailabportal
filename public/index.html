@@ -10,6 +10,8 @@
       document.documentElement.classList.add('locked');
     }
   </script>
+  <link rel="preconnect" href="https://static.wanted.co.kr" />
+  <link rel="stylesheet" href="wds-tokens.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -30,13 +32,15 @@
   </div>
 
   <header>
-    <h1>💡 윤선생 AI 실험실 💡</h1>
-    <p>AI 기반 영어 학습 솔루션</p>
+    <div class="gnb-inner">
+      <span class="gnb-wordmark">⚗️ Yoons AI EdLabs</span>
+    </div>
   </header>
 
   <main>
     <section id="service-intro">
-      <h2>서비스 소개</h2>
+      <h1 class="hero-title"><span class="hero-bulb">💡</span> 윤선생 AI 실험실 <span class="hero-bulb">💡</span></h1>
+      <p class="hero-sub">AI 기반 영어 학습 솔루션</p>
       <p>윤선생 AI 실험실은 '1:1 개인 맞춤'이라는 핵심 가치를 구현하기 위해 현장과 긴밀하게 소통하며 최적의 AI 학습 솔루션을 연구하고 검증하는 공간입니다.</p>
       <p>아래에서 원하는 도구를 선택하여 이용해보세요.</p>
     </section>
@@ -109,8 +113,10 @@
     </main>
 
   <footer>
-    <p>&copy; 2025 윤선생 AI 실험실. All rights reserved.</p>
-    <img src="src/company-logo.png" alt="회사 로고" style="height:40px;">
+    <div class="footer-inner">
+      <p>&copy; 2025 Yoons AI EdLabs. All rights reserved.</p>
+      <img src="src/company-logo.png" alt="회사 로고" />
+    </div>
   </footer>
 
   <script src="auth.js" defer></script>

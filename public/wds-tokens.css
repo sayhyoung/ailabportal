@@ -1,0 +1,563 @@
+/* ============================================================
+   Wanted Design System (WDS / Montage)
+   colors_and_type.css
+
+   A flat CSS token export of WDS atomic + semantic tokens,
+   ported from @wanteddev/wds-theme (TypeScript) into CSS vars.
+   Drop this file into any HTML/CSS project.
+
+   Source: https://github.com/wanteddev/montage-web
+   Docs:   https://montage.wanted.co.kr
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   FONT FACES — Pretendard only (Wanted Sans omitted by design choice)
+   ------------------------------------------------------------ */
+@import url("https://static.wanted.co.kr/fonts/pretendard/pretendard/pretendardvariable-dynamic-subset.min.css");
+
+:root {
+  /* Font families ------------------------------------------- */
+  --font-family-pretendard: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+
+  /* Both base and display use Pretendard */
+  --font-family-base: var(--font-family-pretendard);
+  --font-family-display: var(--font-family-pretendard);
+  --font-family-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+}
+
+/* ============================================================
+   ATOMIC COLOR PALETTES (numeric 0–99 = lightness scale)
+   ============================================================ */
+:root {
+  /* common ------------------------------------------------- */
+  --atomic-common-0: #000000;
+  --atomic-common-100: #ffffff;
+
+  /* coolNeutral (primary neutral) -------------------------- */
+  --atomic-cool-neutral-5: #0f0f10;
+  --atomic-cool-neutral-7: #141415;
+  --atomic-cool-neutral-10: #171719;
+  --atomic-cool-neutral-15: #1b1c1e;
+  --atomic-cool-neutral-17: #212225;
+  --atomic-cool-neutral-20: #292a2d;
+  --atomic-cool-neutral-22: #2e2f33;
+  --atomic-cool-neutral-23: #333438;
+  --atomic-cool-neutral-25: #37383c;
+  --atomic-cool-neutral-30: #46474c;
+  --atomic-cool-neutral-40: #5a5c63;
+  --atomic-cool-neutral-50: #70737c;
+  --atomic-cool-neutral-60: #878a93;
+  --atomic-cool-neutral-70: #989ba2;
+  --atomic-cool-neutral-80: #aeb0b6;
+  --atomic-cool-neutral-90: #c2c4c8;
+  --atomic-cool-neutral-95: #dbdcdf;
+  --atomic-cool-neutral-96: #e1e2e4;
+  --atomic-cool-neutral-97: #eaebec;
+  --atomic-cool-neutral-98: #f4f4f5;
+  --atomic-cool-neutral-99: #f7f7f8;
+
+  /* neutral (warm-leaning) --------------------------------- */
+  --atomic-neutral-5: #0f0f0f;
+  --atomic-neutral-10: #171717;
+  --atomic-neutral-15: #1c1c1c;
+  --atomic-neutral-20: #2a2a2a;
+  --atomic-neutral-22: #303030;
+  --atomic-neutral-30: #474747;
+  --atomic-neutral-40: #5c5c5c;
+  --atomic-neutral-50: #737373;
+  --atomic-neutral-60: #8a8a8a;
+  --atomic-neutral-70: #9b9b9b;
+  --atomic-neutral-80: #b0b0b0;
+  --atomic-neutral-90: #c4c4c4;
+  --atomic-neutral-95: #dcdcdc;
+  --atomic-neutral-99: #f7f7f7;
+
+  /* blue (brand primary) ----------------------------------- */
+  --atomic-blue-10: #001536;
+  --atomic-blue-20: #002966;
+  --atomic-blue-30: #003e9c;
+  --atomic-blue-40: #0054d1;
+  --atomic-blue-45: #005eeb;
+  --atomic-blue-50: #0066ff; /* ★ brand */
+  --atomic-blue-55: #1a75ff;
+  --atomic-blue-60: #3385ff;
+  --atomic-blue-65: #4f95ff;
+  --atomic-blue-70: #69a5ff;
+  --atomic-blue-80: #9ec5ff;
+  --atomic-blue-90: #c9defe;
+  --atomic-blue-95: #eaf2fe;
+  --atomic-blue-99: #f7fbff;
+
+  /* red ---------------------------------------------------- */
+  --atomic-red-10: #3b0101;
+  --atomic-red-20: #730303;
+  --atomic-red-30: #b00c0c;
+  --atomic-red-40: #e52222;
+  --atomic-red-50: #ff4242;
+  --atomic-red-60: #ff6363;
+  --atomic-red-70: #ff8c8c;
+  --atomic-red-80: #ffb5b5;
+  --atomic-red-90: #fed5d5;
+  --atomic-red-95: #feecec;
+  --atomic-red-99: #fffafa;
+
+  /* red-orange --------------------------------------------- */
+  --atomic-red-orange-10: #290f00;
+  --atomic-red-orange-20: #592100;
+  --atomic-red-orange-30: #913500;
+  --atomic-red-orange-40: #c94a00;
+  --atomic-red-orange-48: #f55a00;
+  --atomic-red-orange-50: #ff5e00;
+  --atomic-red-orange-60: #ff7b2e;
+  --atomic-red-orange-70: #ff9b61;
+  --atomic-red-orange-80: #ffbd96;
+  --atomic-red-orange-90: #fed9c4;
+  --atomic-red-orange-95: #feeee5;
+  --atomic-red-orange-99: #fffaf7;
+
+  /* orange ------------------------------------------------- */
+  --atomic-orange-10: #361e00;
+  --atomic-orange-20: #663a00;
+  --atomic-orange-30: #9c5800;
+  --atomic-orange-39: #d17600;
+  --atomic-orange-40: #d47800;
+  --atomic-orange-50: #ff9200;
+  --atomic-orange-60: #ffa938;
+  --atomic-orange-70: #ffc06e;
+  --atomic-orange-80: #ffd49c;
+  --atomic-orange-90: #fee6c6;
+  --atomic-orange-95: #fef4e6;
+  --atomic-orange-99: #fffcf7;
+
+  /* lime --------------------------------------------------- */
+  --atomic-lime-10: #112900;
+  --atomic-lime-20: #225200;
+  --atomic-lime-30: #347d00;
+  --atomic-lime-37: #429e00;
+  --atomic-lime-40: #48ad00;
+  --atomic-lime-50: #58cf04;
+  --atomic-lime-60: #6be016;
+  --atomic-lime-70: #88f03e;
+  --atomic-lime-80: #aef779;
+  --atomic-lime-90: #ccfca9;
+  --atomic-lime-95: #e6ffd4;
+  --atomic-lime-99: #f8fff2;
+
+  /* green -------------------------------------------------- */
+  --atomic-green-10: #00240c;
+  --atomic-green-20: #004517;
+  --atomic-green-30: #006e25;
+  --atomic-green-40: #009632;
+  --atomic-green-50: #00bf40;
+  --atomic-green-60: #1ed45a;
+  --atomic-green-70: #49e57d;
+  --atomic-green-80: #7df5a5;
+  --atomic-green-90: #acfcc7;
+  --atomic-green-95: #d9ffe6;
+  --atomic-green-99: #f2fff6;
+
+  /* cyan --------------------------------------------------- */
+  --atomic-cyan-10: #00252b;
+  --atomic-cyan-20: #004854;
+  --atomic-cyan-30: #006f82;
+  --atomic-cyan-40: #0098b2;
+  --atomic-cyan-50: #00bdde;
+  --atomic-cyan-60: #28d0ed;
+  --atomic-cyan-70: #57dff7;
+  --atomic-cyan-80: #8aedff;
+  --atomic-cyan-90: #b5f4ff;
+  --atomic-cyan-95: #defaff;
+  --atomic-cyan-99: #f7feff;
+
+  /* light-blue --------------------------------------------- */
+  --atomic-light-blue-10: #002130;
+  --atomic-light-blue-20: #004261;
+  --atomic-light-blue-30: #006796;
+  --atomic-light-blue-40: #008dcf;
+  --atomic-light-blue-50: #00aeff;
+  --atomic-light-blue-60: #3dc2ff;
+  --atomic-light-blue-70: #70d2ff;
+  --atomic-light-blue-80: #a1e1ff;
+  --atomic-light-blue-90: #c4ecfe;
+  --atomic-light-blue-95: #e5f6fe;
+  --atomic-light-blue-99: #f7fdff;
+
+  /* violet ------------------------------------------------- */
+  --atomic-violet-10: #11024d;
+  --atomic-violet-20: #23098f;
+  --atomic-violet-30: #3a16c9;
+  --atomic-violet-40: #4f29e5;
+  --atomic-violet-45: #5b37ed;
+  --atomic-violet-50: #6541f2;
+  --atomic-violet-60: #7d5ef7;
+  --atomic-violet-70: #9e86fc;
+  --atomic-violet-80: #c0b0ff;
+  --atomic-violet-90: #dbd3fe;
+  --atomic-violet-95: #f0ecfe;
+  --atomic-violet-99: #fbfaff;
+
+  /* purple ------------------------------------------------- */
+  --atomic-purple-10: #290247;
+  --atomic-purple-20: #580a7d;
+  --atomic-purple-30: #861cb8;
+  --atomic-purple-40: #ad36e3;
+  --atomic-purple-50: #cb59ff;
+  --atomic-purple-60: #d478ff;
+  --atomic-purple-70: #de96ff;
+  --atomic-purple-80: #e9baff;
+  --atomic-purple-90: #f2d6ff;
+  --atomic-purple-95: #f9edff;
+  --atomic-purple-99: #fefbff;
+
+  /* pink --------------------------------------------------- */
+  --atomic-pink-10: #3d0133;
+  --atomic-pink-20: #730560;
+  --atomic-pink-30: #a81690;
+  --atomic-pink-40: #d331b8;
+  --atomic-pink-46: #e846cd;
+  --atomic-pink-50: #f553da;
+  --atomic-pink-60: #fa73e3;
+  --atomic-pink-70: #ff94ed;
+  --atomic-pink-80: #ffb8f3;
+  --atomic-pink-90: #fed3f7;
+  --atomic-pink-95: #feecfb;
+  --atomic-pink-99: #fffafe;
+}
+
+/* ============================================================
+   OPACITY, SPACING, BREAKPOINT, RADII
+   ============================================================ */
+:root {
+  /* opacity ------------------------------------------------ */
+  --opacity-5: 0.05;
+  --opacity-8: 0.08;
+  --opacity-12: 0.12;
+  --opacity-16: 0.16;
+  --opacity-22: 0.22;
+  --opacity-28: 0.28;
+  --opacity-35: 0.35;
+  --opacity-43: 0.43;
+  --opacity-52: 0.52;
+  --opacity-61: 0.61;
+  --opacity-74: 0.74;
+  --opacity-88: 0.88;
+  --opacity-97: 0.97;
+
+  /* spacing scale (raw px) --------------------------------- */
+  --space-0: 0px;
+  --space-0_5: 0.5px;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-64: 64px;
+  --space-72: 72px;
+  --space-80: 80px;
+
+  /* breakpoints (min-width) -------------------------------- */
+  --bp-xs: 0px;
+  --bp-sm: 768px;
+  --bp-md: 992px;
+  --bp-lg: 1200px;
+  --bp-xl: 1600px;
+
+  /* radii (button.style.ts -> 12 / 10 / 8 for L/M/S) ------- */
+  --radius-2: 2px;
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-10: 10px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+  --radius-20: 20px;
+  --radius-pill: 99px;
+  --radius-full: 9999px;
+}
+
+/* ============================================================
+   SEMANTIC TOKENS — LIGHT THEME (default)
+   ============================================================ */
+:root,
+[data-theme="light"] {
+  /* static ------------------------------------------------- */
+  --semantic-static-white: var(--atomic-common-100);
+  --semantic-static-black: var(--atomic-common-0);
+
+  /* primary (blue) ----------------------------------------- */
+  --semantic-primary-normal: var(--atomic-blue-50);  /* #0066FF */
+  --semantic-primary-strong: var(--atomic-blue-45);  /* #005EEB */
+  --semantic-primary-heavy: var(--atomic-blue-40);   /* #0054D1 */
+
+  /* label (foreground) ------------------------------------- */
+  --semantic-label-normal: var(--atomic-cool-neutral-10);   /* #171719 */
+  --semantic-label-strong: var(--atomic-common-0);          /* #000000 */
+  --semantic-label-neutral: rgba(46, 47, 51, 0.88);         /* coolNeutral-22 * 88% */
+  --semantic-label-alternative: rgba(55, 56, 60, 0.61);     /* coolNeutral-25 * 61% */
+  --semantic-label-assistive: rgba(55, 56, 60, 0.28);
+  --semantic-label-disable: rgba(55, 56, 60, 0.16);
+
+  /* background --------------------------------------------- */
+  --semantic-background-normal-normal: var(--atomic-common-100);       /* #ffffff */
+  --semantic-background-normal-alternative: var(--atomic-cool-neutral-99); /* #f7f7f8 */
+  --semantic-background-elevated-normal: var(--atomic-common-100);
+  --semantic-background-elevated-alternative: var(--atomic-cool-neutral-99);
+  --semantic-background-transparent-normal: rgba(255, 255, 255, 0.08);
+  --semantic-background-transparent-alternative: rgba(255, 255, 255, 0.28);
+
+  /* interaction -------------------------------------------- */
+  --semantic-interaction-inactive: var(--atomic-cool-neutral-70);  /* #989BA2 */
+  --semantic-interaction-disable: var(--atomic-cool-neutral-98);   /* #F4F4F5 */
+
+  /* line (borders) ----------------------------------------- */
+  --semantic-line-normal-normal: rgba(112, 115, 124, 0.22);
+  --semantic-line-normal-neutral: rgba(112, 115, 124, 0.16);
+  --semantic-line-normal-alternative: rgba(112, 115, 124, 0.08);
+  --semantic-line-solid-normal: var(--atomic-cool-neutral-96);
+  --semantic-line-solid-neutral: var(--atomic-cool-neutral-97);
+  --semantic-line-solid-alternative: var(--atomic-cool-neutral-98);
+
+  /* status ------------------------------------------------- */
+  --semantic-status-positive: var(--atomic-green-50);    /* #00BF40 */
+  --semantic-status-cautionary: var(--atomic-orange-50); /* #FF9200 */
+  --semantic-status-negative: var(--atomic-red-50);      /* #FF4242 */
+
+  /* accent backgrounds (vivid surfaces) -------------------- */
+  --semantic-accent-bg-red-orange: var(--atomic-red-orange-50);
+  --semantic-accent-bg-lime: var(--atomic-lime-50);
+  --semantic-accent-bg-cyan: var(--atomic-cyan-50);
+  --semantic-accent-bg-light-blue: var(--atomic-light-blue-50);
+  --semantic-accent-bg-violet: var(--atomic-violet-50);
+  --semantic-accent-bg-purple: var(--atomic-purple-50);
+  --semantic-accent-bg-pink: var(--atomic-pink-50);
+
+  /* accent foregrounds (text-on-light) --------------------- */
+  --semantic-accent-fg-red: var(--atomic-red-40);
+  --semantic-accent-fg-red-orange: var(--atomic-red-orange-48);
+  --semantic-accent-fg-orange: var(--atomic-orange-39);
+  --semantic-accent-fg-lime: var(--atomic-lime-37);
+  --semantic-accent-fg-green: var(--atomic-green-40);
+  --semantic-accent-fg-cyan: var(--atomic-cyan-40);
+  --semantic-accent-fg-light-blue: var(--atomic-light-blue-40);
+  --semantic-accent-fg-blue: var(--atomic-blue-45);
+  --semantic-accent-fg-violet: var(--atomic-violet-45);
+  --semantic-accent-fg-purple: var(--atomic-purple-40);
+  --semantic-accent-fg-pink: var(--atomic-pink-46);
+
+  /* inverse (dark callouts inside light) ------------------- */
+  --semantic-inverse-primary: var(--atomic-blue-60);
+  --semantic-inverse-background: var(--atomic-cool-neutral-15);
+  --semantic-inverse-label: var(--atomic-cool-neutral-99);
+
+  /* fill (translucent surface tints) ----------------------- */
+  --semantic-fill-normal: rgba(112, 115, 124, 0.08);
+  --semantic-fill-strong: rgba(112, 115, 124, 0.16);
+  --semantic-fill-alternative: rgba(112, 115, 124, 0.05);
+
+  /* material (overlay/dimmer) ------------------------------ */
+  --semantic-material-dimmer: rgba(23, 23, 25, 0.52);
+
+  /* elevation shadows ------------------------------------- */
+  --shadow-xsmall: 0px 1px 2px -1px rgba(23, 23, 23, 0.1);
+  --shadow-small: 0px 2px 4px -2px rgba(23, 23, 23, 0.06),
+                  0px 4px 6px -1px rgba(23, 23, 23, 0.06);
+  --shadow-medium: 0px 4px 6px -2px rgba(23, 23, 23, 0.07),
+                   0px 10px 15px -3px rgba(23, 23, 23, 0.07);
+  --shadow-large: 0px 6px 10px -4px rgba(23, 23, 23, 0.08),
+                  0px 16px 24px -6px rgba(23, 23, 23, 0.08);
+  --shadow-xlarge: 0px 10px 15px -5px rgba(23, 23, 23, 0.1),
+                   0px 24px 38px -10px rgba(23, 23, 23, 0.12);
+  --shadow-spread-small: 0px 0px 60px 0px rgba(23, 23, 23, 0.1);
+  --shadow-spread-medium: 0px 15px 75px 0px rgba(23, 23, 23, 0.16);
+}
+
+/* ============================================================
+   SEMANTIC TOKENS — DARK THEME
+   ============================================================ */
+[data-theme="dark"] {
+  --semantic-primary-normal: var(--atomic-blue-60);
+  --semantic-primary-strong: var(--atomic-blue-55);
+  --semantic-primary-heavy: var(--atomic-blue-50);
+
+  --semantic-label-normal: var(--atomic-cool-neutral-99);
+  --semantic-label-strong: var(--atomic-common-100);
+  --semantic-label-neutral: rgba(194, 196, 200, 0.88);     /* coolNeutral-90 */
+  --semantic-label-alternative: rgba(174, 176, 182, 0.61); /* coolNeutral-80 */
+  --semantic-label-assistive: rgba(174, 176, 182, 0.28);
+  --semantic-label-disable: rgba(152, 155, 162, 0.16);     /* coolNeutral-70 */
+
+  --semantic-background-normal-normal: var(--atomic-cool-neutral-15);     /* #1B1C1E */
+  --semantic-background-normal-alternative: var(--atomic-cool-neutral-5); /* #0F0F10 */
+  --semantic-background-elevated-normal: var(--atomic-cool-neutral-17);   /* #212225 */
+  --semantic-background-elevated-alternative: var(--atomic-cool-neutral-7);
+  --semantic-background-transparent-normal: rgba(33, 34, 37, 0.61);
+  --semantic-background-transparent-alternative: rgba(33, 34, 37, 0.61);
+
+  --semantic-interaction-inactive: var(--atomic-cool-neutral-40);
+  --semantic-interaction-disable: var(--atomic-cool-neutral-22);
+
+  --semantic-line-normal-normal: rgba(112, 115, 124, 0.32);
+  --semantic-line-normal-neutral: rgba(112, 115, 124, 0.28);
+  --semantic-line-normal-alternative: rgba(112, 115, 124, 0.22);
+  --semantic-line-solid-normal: var(--atomic-cool-neutral-25);
+  --semantic-line-solid-neutral: var(--atomic-cool-neutral-23);
+  --semantic-line-solid-alternative: var(--atomic-cool-neutral-22);
+
+  --semantic-status-positive: var(--atomic-green-60);
+  --semantic-status-cautionary: var(--atomic-orange-60);
+  --semantic-status-negative: var(--atomic-red-60);
+
+  --semantic-inverse-primary: var(--atomic-blue-50);
+  --semantic-inverse-background: var(--atomic-common-100);
+  --semantic-inverse-label: var(--atomic-cool-neutral-10);
+
+  --semantic-fill-normal: rgba(112, 115, 124, 0.22);
+  --semantic-fill-strong: rgba(112, 115, 124, 0.28);
+  --semantic-fill-alternative: rgba(112, 115, 124, 0.12);
+
+  --semantic-material-dimmer: rgba(23, 23, 25, 0.74);
+}
+
+/* Auto-dark via prefers-color-scheme (when no explicit data-theme) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --semantic-primary-normal: var(--atomic-blue-60);
+    --semantic-primary-strong: var(--atomic-blue-55);
+    --semantic-primary-heavy: var(--atomic-blue-50);
+
+    --semantic-label-normal: var(--atomic-cool-neutral-99);
+    --semantic-label-strong: var(--atomic-common-100);
+    --semantic-label-neutral: rgba(194, 196, 200, 0.88);
+    --semantic-label-alternative: rgba(174, 176, 182, 0.61);
+    --semantic-label-assistive: rgba(174, 176, 182, 0.28);
+    --semantic-label-disable: rgba(152, 155, 162, 0.16);
+
+    --semantic-background-normal-normal: var(--atomic-cool-neutral-15);
+    --semantic-background-normal-alternative: var(--atomic-cool-neutral-5);
+    --semantic-background-elevated-normal: var(--atomic-cool-neutral-17);
+    --semantic-background-elevated-alternative: var(--atomic-cool-neutral-7);
+
+    --semantic-line-normal-normal: rgba(112, 115, 124, 0.32);
+    --semantic-line-normal-neutral: rgba(112, 115, 124, 0.28);
+    --semantic-line-normal-alternative: rgba(112, 115, 124, 0.22);
+    --semantic-line-solid-normal: var(--atomic-cool-neutral-25);
+    --semantic-line-solid-neutral: var(--atomic-cool-neutral-23);
+    --semantic-line-solid-alternative: var(--atomic-cool-neutral-22);
+
+    --semantic-inverse-background: var(--atomic-common-100);
+    --semantic-inverse-label: var(--atomic-cool-neutral-10);
+
+    --semantic-fill-normal: rgba(112, 115, 124, 0.22);
+    --semantic-fill-strong: rgba(112, 115, 124, 0.28);
+    --semantic-fill-alternative: rgba(112, 115, 124, 0.12);
+  }
+}
+
+/* ============================================================
+   TYPOGRAPHY — 19-variant scale from
+   packages/wds/src/components/typography/style.ts
+   Each variant carries font-size + line-height + letter-spacing.
+   Weight is composed separately (regular 400 / medium 500 /
+   bold 600 — except display* + title* where bold = 700).
+   ============================================================ */
+
+html,
+body {
+  font-family: var(--font-family-base);
+  font-feature-settings: "ss06", "ss07"; /* Pretendard tabular tweaks */
+  color: var(--semantic-label-normal);
+  background-color: var(--semantic-background-normal-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* The base wds-typography variants — apply as class .t-display1 etc. */
+
+.t-display1 { font-family: var(--font-family-display); font-size: 3.5rem;    line-height: 4.5rem;   letter-spacing: -0.0319em; }
+.t-display2 { font-family: var(--font-family-display); font-size: 2.5rem;    line-height: 3.25rem;  letter-spacing: -0.0282em; }
+.t-display3 { font-family: var(--font-family-display); font-size: 2.25rem;   line-height: 3rem;     letter-spacing: -0.0270em; }
+
+.t-title1   { font-family: var(--font-family-display); font-size: 2rem;      line-height: 2.75rem;  letter-spacing: -0.0253em; }
+.t-title2   { font-family: var(--font-family-display); font-size: 1.75rem;   line-height: 2.375rem; letter-spacing: -0.0236em; }
+.t-title3   { font-family: var(--font-family-display); font-size: 1.5rem;    line-height: 2rem;     letter-spacing: -0.0230em; }
+
+.t-heading1 { font-size: 1.375rem;  line-height: 1.875rem; letter-spacing: -0.0194em; }
+.t-heading2 { font-size: 1.25rem;   line-height: 1.75rem;  letter-spacing: -0.0120em; }
+
+.t-headline1{ font-size: 1.125rem;  line-height: 1.625rem; letter-spacing: -0.0020em; }
+.t-headline2{ font-size: 1.0625rem; line-height: 1.5rem;   letter-spacing: 0em; }
+
+.t-body1         { font-size: 1rem;      line-height: 1.5rem;   letter-spacing: 0.0057em; }
+.t-body1-reading { font-size: 1rem;      line-height: 1.625rem; letter-spacing: 0.0057em; }
+.t-body2         { font-size: 0.9375rem; line-height: 1.375rem; letter-spacing: 0.0096em; }
+.t-body2-reading { font-size: 0.9375rem; line-height: 1.5rem;   letter-spacing: 0.0096em; }
+
+.t-label1         { font-size: 0.875rem;  line-height: 1.25rem;  letter-spacing: 0.0145em; }
+.t-label1-reading { font-size: 0.875rem;  line-height: 1.375rem; letter-spacing: 0.0145em; }
+.t-label2         { font-size: 0.8125rem; line-height: 1.125rem; letter-spacing: 0.0194em; }
+
+.t-caption1 { font-size: 0.75rem;   line-height: 1rem;     letter-spacing: 0.0252em; }
+.t-caption2 { font-size: 0.6875rem; line-height: 0.875rem; letter-spacing: 0.0311em; }
+
+/* Weights */
+.w-regular { font-weight: 400; }
+.w-medium  { font-weight: 500; }
+.w-bold    { font-weight: 600; }
+/* For display* + title*, bold should be 700: */
+.t-display1.w-bold, .t-display2.w-bold, .t-display3.w-bold,
+.t-title1.w-bold,   .t-title2.w-bold,   .t-title3.w-bold { font-weight: 700; }
+
+/* Semantic HTML defaults map onto WDS scale */
+h1 { font-family: var(--font-family-display); font-size: 2.5rem;  line-height: 3.25rem; letter-spacing: -0.0282em; font-weight: 700; }
+h2 { font-family: var(--font-family-display); font-size: 2rem;    line-height: 2.75rem; letter-spacing: -0.0253em; font-weight: 700; }
+h3 { font-family: var(--font-family-display); font-size: 1.5rem;  line-height: 2rem;    letter-spacing: -0.0230em; font-weight: 700; }
+h4 { font-size: 1.25rem;  line-height: 1.75rem;  letter-spacing: -0.0120em; font-weight: 600; }
+h5 { font-size: 1.125rem; line-height: 1.625rem; letter-spacing: -0.0020em; font-weight: 600; }
+h6 { font-size: 1rem;     line-height: 1.5rem;   letter-spacing: 0.0057em;  font-weight: 600; }
+
+p  { font-size: 1rem; line-height: 1.625rem; letter-spacing: 0.0057em; }
+small { font-size: 0.8125rem; line-height: 1.125rem; letter-spacing: 0.0194em; }
+
+code, pre, kbd, samp {
+  font-family: var(--font-family-mono);
+  font-size: 0.875em;
+}
+
+/* ============================================================
+   UTILITY ALIASES (more familiar names if you prefer them)
+   ============================================================ */
+:root {
+  --fg-1: var(--semantic-label-normal);
+  --fg-2: var(--semantic-label-neutral);
+  --fg-3: var(--semantic-label-alternative);
+  --fg-4: var(--semantic-label-assistive);
+  --fg-disabled: var(--semantic-label-disable);
+
+  --bg-1: var(--semantic-background-normal-normal);
+  --bg-2: var(--semantic-background-normal-alternative);
+  --bg-elevated: var(--semantic-background-elevated-normal);
+
+  --border-1: var(--semantic-line-normal-normal);
+  --border-2: var(--semantic-line-normal-neutral);
+  --border-3: var(--semantic-line-normal-alternative);
+
+  --accent: var(--semantic-primary-normal); /* WDS Blue 50 — #0066FF */
+  --accent-strong: var(--semantic-primary-strong);
+
+  --gnb-height: 64px;
+  --layout-max-width: 1280px;
+  --layout-padding-inline: 24px;
+}

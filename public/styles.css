@@ -1,266 +1,312 @@
-/* :root: CSS 변수 선언 (색상, 폰트 등) */
-:root {
-  /* [수정] 윤선생 로고에 맞춘 빨간색 계열로 변경 */
-  --primary-color: #2B3A67; 
-  --secondary-color:#6B4EFF; 
-  --bg-color: #f4f7f6;
-  --text-dark: #222;
-  --text-light: #666;
-  --card-bg: #ffffff;
-  --header-text: #ffffff;
-  --footer-bg: #2a2a2a;
-  --footer-text: #aaaaaa;
-  --shadow-color: rgba(0, 0, 0, 0.08);
-  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-}
+/* ============================================================
+   윤선생 AI 실험실 portal — WDS / Montage theme application
+   Tokens come from wds-tokens.css; this file only composes them.
+   ============================================================ */
 
-/* 기본 리셋 및 폰트 스타일 */
-body {
-  font-family: var(--font-main);
+* { box-sizing: border-box; }
+
+html, body {
   margin: 0;
   padding: 0;
-  background-color: var(--bg-color);
-  color: var(--text-dark);
-  line-height: 1.6;
+  min-height: 100vh;
 }
 
-/* 헤더: 그라데이션 적용 */
+body {
+  font-family: var(--font-family-base);
+  background: var(--semantic-background-normal-normal);
+  color: var(--semantic-label-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss06", "ss07";
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
+
+/* ============ Header (colored band, WDS blue→violet gradient) ============ */
 header {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-  color: var(--header-text);
-  padding: 30px 20px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: var(--gnb-height);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--layout-padding-inline);
+  background: linear-gradient(135deg, var(--atomic-blue-50) 0%, var(--atomic-violet-50) 100%);
+  color: var(--semantic-static-white);
+  box-shadow: var(--shadow-small);
 }
 
-header h1 {
-  margin: 0 0 5px 0;
+.gnb-inner {
+  max-width: var(--layout-max-width);
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-header p {
-  margin: 0;
-  font-size: 1.1em;
-  opacity: 0.9;
+.gnb-wordmark {
+  font-family: var(--font-family-display);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.0194em;
+  color: var(--semantic-static-white);
 }
 
+/* ============ Page layout ============ */
 main {
-  padding: 20px;
-  max-width: 1100px;
-  margin: 30px auto;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  padding: 0 var(--layout-padding-inline);
 }
 
-/* 서비스 소개 섹션 */
+/* ============ Hero ============ */
 #service-intro {
   text-align: center;
-  margin-bottom: 40px;
-  background-color: var(--card-bg);
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px var(--shadow-color);
+  padding: 40px 0 48px;
 }
 
-#service-intro h2 {
-  margin-top: 0;
-  color: var(--primary-color);
+.hero-title {
+  font-family: var(--font-family-display);
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.032em;
+  color: var(--semantic-label-normal);
+  margin: 0 0 16px;
 }
 
-#service-intro p {
-  font-size: 18px;
+.hero-bulb {
+  font-size: 0.8em;
+  vertical-align: 0.05em;
 }
 
-/* Quick Links 섹션 */
+.hero-sub {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--semantic-label-neutral);
+  margin: 0 0 32px;
+  letter-spacing: -0.002em;
+}
+
+#service-intro p:not(.hero-sub) {
+  margin: 0 auto;
+  max-width: 680px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--semantic-label-neutral);
+  letter-spacing: 0.0057em;
+}
+
+#service-intro p:not(.hero-sub) + p {
+  margin-top: 10px;
+  color: var(--semantic-label-alternative);
+}
+
+@media (max-width: 768px) {
+  #service-intro { padding: 28px 0 36px; }
+  .hero-title { font-size: 36px; letter-spacing: -0.028em; }
+  .hero-sub { font-size: 15px; margin-bottom: 24px; }
+  #service-intro p:not(.hero-sub) { font-size: 14px; }
+}
+
+/* ============ Quick Links section ============ */
+#quick-links {
+  padding: 32px 0 64px;
+}
+
 .quick-link-div {
-  background-color: transparent; /* 배경을 main과 동일하게 */
-  border-radius: 8px;
+  background: transparent;
+  border-radius: 0;
   padding: 0;
-  margin-bottom: 30px;
-  box-shadow: none; /* 그림자 제거 (카드에만 적용) */
+  margin: 0;
+  box-shadow: none;
 }
 
 .quick-links-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 25px;
+  font-family: var(--font-family-display);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.024em;
+  color: var(--semantic-label-normal);
   text-align: center;
-  color: var(--text-dark);
+  margin: 0 0 32px;
 }
 
-/* 반응형 그리드 레이아웃 (6 column trick: 카드는 span 2) */
 .quick-buttons {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 25px;
-  max-width: 1100px;
+  gap: 14px;
+  max-width: 920px;
   margin: 0 auto;
 }
 
-/* 카드 스타일 */
+/* ============ Service card (WDS resource card style) ============ */
 .card {
   grid-column: span 2;
   display: flex;
   align-items: center;
-  background-color: var(--card-bg);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px var(--shadow-color);
-  padding: 20px;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--semantic-background-elevated-normal);
+  border-radius: 14px;
+  box-shadow: inset 0 0 0 1px var(--semantic-line-normal-alternative);
   cursor: pointer;
-  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  position: relative;
   overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* 카드 호버(Hover) 효과: 부드럽게 확대 */
+.card::after {
+  /* WDS "WithInteraction" overlay pattern — opacity-only hover */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--semantic-label-normal);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+
 .card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+  box-shadow: inset 0 0 0 1px var(--semantic-line-normal-normal), var(--shadow-medium);
 }
 
-/* 5개 카드일 때: 두 번째 줄의 4,5번째 카드를 진짜 가운데로 (col 2-3, 4-5) */
-.card:nth-child(4):nth-last-child(2) {
-  grid-column: 2 / span 2;
-}
+.card:hover::after { opacity: 0.04; }
+.card:active::after { opacity: 0.08; }
 
-/* 4개 카드일 때: 두 번째 줄의 단독 카드를 진짜 가운데로 (col 3-4) */
-.card:nth-child(4):last-child {
-  grid-column: 3 / span 2;
-}
+/* Center the trailing card(s) on the desktop grid */
+.card:nth-child(4):nth-last-child(2) { grid-column: 2 / span 2; }
+.card:nth-child(4):last-child { grid-column: 3 / span 2; }
 
-/* 좌측 원형 아이콘 */
 .icon-circle {
-  min-width: 55px; 
-  min-height: 55px;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  /* [수정] 테마 색상의 연한 버전으로 변경 (빨간색 계열) */
-  background-color: rgba(43, 58, 103, 0.08); 
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--semantic-fill-normal);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 20px;
 }
 
 .icon-circle img {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
 }
 
-
-/* 우측 텍스트 영역 */
 .text-container {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .text-container h3 {
-  margin: 0;
-  font-size: 18px;
+  margin: 0 0 2px;
+  font-family: var(--font-family-base);
+  font-size: 14px;
   font-weight: 600;
-  color: var(--text-dark);
-  margin-bottom: 4px;
+  letter-spacing: -0.002em;
+  color: var(--semantic-label-normal);
+  line-height: 1.35;
 }
 
 .text-container p {
   margin: 0;
-  font-size: 14px;
-  color: var(--text-light);
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--semantic-label-alternative);
+  letter-spacing: 0.0096em;
 }
 
-/* ===== [수정] 문의사항 링크 스타일 ===== */
+/* ============ Contact link ============ */
 #contact-section {
-  text-align: right; /* 우측 정렬 */
-  margin: 20px 0; /* 상하 여백 조정 */
-  padding-right: 10px; /* main 영역 내 여백과 맞춤 */
+  text-align: center;
+  padding: 0 0 48px;
 }
 
 .contact-link {
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--text-light); /* 기본 텍스트 색상 (회색) */
-  text-decoration: none; /* 밑줄 제거 */
-  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 22px;
+  border-radius: var(--radius-pill);
+  background: var(--semantic-fill-normal);
+  color: var(--semantic-label-normal);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.0145em;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .contact-link:hover {
-  color: var(--primary-color); /* 호버 시 빨간색으로 변경 */
-  text-decoration: underline; /* 호버 시 밑줄 표시 */
+  background: var(--semantic-inverse-background);
+  color: var(--semantic-inverse-label);
+  text-decoration: none;
 }
-/* ================================== */
 
-
-/* 푸터 */
+/* ============ Footer (dark band, compact) ============ */
 footer {
-  background-color: var(--footer-bg);
-  color: var(--footer-text);
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
+  margin-top: 48px;
+  padding: 14px var(--layout-padding-inline);
+  background: var(--semantic-inverse-background);
+  color: var(--semantic-inverse-label);
+}
+
+.footer-inner {
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+footer p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--semantic-inverse-label);
+  opacity: 0.7;
+  letter-spacing: 0.0145em;
 }
 
 footer img {
-  vertical-align: middle;
-  margin-left: 10px;
+  height: 24px;
   opacity: 0.8;
 }
 
-/* 태블릿: 2열 (4 column / 카드 span 2) */
-@media (max-width: 960px) {
-  .quick-buttons {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 800px;
-  }
-
-  /* 데스크탑 가운데 정렬 규칙 해제 (span 2는 .card에서 상속) */
-  .card:nth-child(4):nth-last-child(2),
-  .card:nth-child(4):last-child {
-    grid-column: span 2;
-  }
-
-  /* 5개일 때 3행 단독 카드(5번째)를 가운데로 (col 2-3) */
-  .card:nth-child(5):last-child {
-    grid-column: 2 / span 2;
+@media (max-width: 600px) {
+  .footer-inner {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
   }
 }
 
-/* 모바일: 1열 */
-@media (max-width: 600px) {
-  .quick-buttons {
-    grid-template-columns: 1fr;
-  }
+/* ============ Responsive ============ */
+@media (max-width: 1100px) {
+  .quick-buttons { grid-template-columns: repeat(4, 1fr); }
+  .card,
+  .card:nth-child(4):nth-last-child(2),
+  .card:nth-child(4):last-child { grid-column: span 2; }
+  .card:nth-child(5):last-child { grid-column: 2 / span 2; }
+}
 
-  /* 모바일에선 카드 span 무효화 + 가운데 정렬 규칙 해제 */
+@media (max-width: 720px) {
+  .quick-buttons { grid-template-columns: 1fr; gap: 12px; }
   .card,
   .card:nth-child(4):nth-last-child(2),
   .card:nth-child(4):last-child,
-  .card:nth-child(5):last-child {
-    grid-column: auto;
-  }
-
-  main {
-    padding: 15px;
-    margin: 20px auto;
-  }
-
-  header {
-    padding: 20px 15px;
-  }
-
-  header h1 {
-    font-size: 1.8em;
-  }
-
-  /* 모바일에서도 우측 정렬 유지 */
-  #contact-section {
-    padding-right: 5px;
-  }
+  .card:nth-child(5):last-child { grid-column: auto; }
 }
 
-/* ============ 인증 게이트 (4자리 입장 코드) ============ */
+/* ============ Auth gate (WDS-styled) ============ */
 #auth-gate {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background-color: var(--bg-color);
+  background: var(--semantic-background-normal-alternative);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -268,61 +314,55 @@ footer img {
   transition: opacity 0.3s ease;
 }
 
-/* 인증 통과 상태에서는 게이트 숨김 + 본문 표시 */
-html:not(.locked) #auth-gate {
-  display: none;
-}
-
-/* 인증 미통과 상태에서는 본문 가림 (게이트만 표시) */
-html.locked {
-  overflow: hidden;
-}
-
+html:not(.locked) #auth-gate { display: none; }
+html.locked { overflow: hidden; }
 html.locked > body > header,
 html.locked > body > main,
-html.locked > body > footer {
-  display: none;
-}
+html.locked > body > footer { display: none; }
 
 .auth-card {
-  background-color: var(--card-bg);
+  background: var(--semantic-background-elevated-normal);
   padding: 48px 40px;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px var(--shadow-color);
+  border-radius: 20px;
+  box-shadow:
+    inset 0 0 0 1px var(--semantic-line-normal-alternative),
+    var(--shadow-large);
   text-align: center;
   max-width: 420px;
   width: 100%;
 }
 
 .auth-logo {
-  font-size: 1.5em;
+  font-family: var(--font-family-display);
+  font-size: 22px;
   font-weight: 700;
-  margin: 0 0 4px 0;
-  color: var(--text-dark);
+  letter-spacing: -0.0194em;
+  margin: 0 0 6px;
+  color: var(--semantic-label-normal);
 }
 
 .auth-subtitle {
-  font-size: 14px;
-  color: var(--text-light);
-  margin: 0 0 32px 0;
+  font-size: 13px;
+  color: var(--semantic-label-alternative);
+  margin: 0 0 32px;
+  letter-spacing: 0.0145em;
 }
 
 .auth-prompt {
-  font-size: 15px;
-  color: var(--text-dark);
-  margin: 0 0 20px 0;
+  font-size: 14px;
+  color: var(--semantic-label-neutral);
+  margin: 0 0 20px;
+  letter-spacing: 0.0096em;
 }
 
 .auth-form {
   display: flex;
   gap: 10px;
   justify-content: center;
-  margin: 0 0 16px 0;
+  margin: 0 0 16px;
 }
 
-.auth-form.shake {
-  animation: auth-shake 0.5s ease;
-}
+.auth-form.shake { animation: auth-shake 0.5s ease; }
 
 @keyframes auth-shake {
   0%, 100% { transform: translateX(0); }
@@ -333,15 +373,17 @@ html.locked > body > footer {
 .auth-digit {
   width: 54px;
   height: 64px;
+  font-family: var(--font-family-base);
   font-size: 28px;
   font-weight: 600;
   text-align: center;
-  border: 2px solid #e0e0e0;
-  border-radius: 10px;
-  background: #ffffff;
-  color: var(--text-dark);
+  background: var(--semantic-background-normal-normal);
+  color: var(--semantic-label-normal);
+  border: 0;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px var(--semantic-line-normal-normal);
   outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: box-shadow 0.15s ease;
   -moz-appearance: textfield;
 }
 
@@ -352,38 +394,31 @@ html.locked > body > footer {
 }
 
 .auth-digit:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(43, 58, 103, 0.12);
+  box-shadow:
+    inset 0 0 0 2px var(--semantic-primary-normal),
+    0 0 0 4px rgba(0, 102, 255, 0.12);
 }
 
 .auth-error {
   font-size: 13px;
-  color: #d4544c;
+  color: var(--semantic-status-negative);
   margin: 0;
   min-height: 18px;
   visibility: hidden;
+  letter-spacing: 0.0145em;
 }
 
-.auth-error.visible {
-  visibility: visible;
-}
+.auth-error.visible { visibility: visible; }
 
 .auth-hint {
   font-size: 12px;
-  color: var(--text-light);
-  margin: 8px 0 0 0;
+  color: var(--semantic-label-alternative);
+  margin: 8px 0 0;
+  letter-spacing: 0.025em;
 }
 
 @media (max-width: 480px) {
-  .auth-card {
-    padding: 36px 24px;
-  }
-  .auth-digit {
-    width: 48px;
-    height: 56px;
-    font-size: 24px;
-  }
-  .auth-form {
-    gap: 8px;
-  }
+  .auth-card { padding: 36px 24px; }
+  .auth-digit { width: 48px; height: 56px; font-size: 24px; }
+  .auth-form { gap: 8px; }
 }
