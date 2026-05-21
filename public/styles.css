@@ -89,8 +89,8 @@ main {
 
 #service-intro p:not(.hero-sub) {
   margin: 0 auto;
-  max-width: 680px;
-  font-size: 15px;
+  max-width: 720px;
+  font-size: 17px;
   line-height: 1.7;
   color: var(--semantic-label-neutral);
   letter-spacing: 0.0057em;
@@ -105,7 +105,7 @@ main {
   #service-intro { padding: 28px 0 36px; }
   .hero-title { font-size: 36px; letter-spacing: -0.028em; }
   .hero-sub { font-size: 15px; margin-bottom: 24px; }
-  #service-intro p:not(.hero-sub) { font-size: 14px; }
+  #service-intro p:not(.hero-sub) { font-size: 15px; }
 }
 
 /* ============ Quick Links section ============ */
@@ -134,8 +134,8 @@ main {
 .quick-buttons {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 14px;
-  max-width: 920px;
+  gap: 16px;
+  max-width: 1020px;
   margin: 0 auto;
 }
 
@@ -144,10 +144,10 @@ main {
   grid-column: span 2;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
+  gap: 14px;
+  padding: 16px 18px;
   background: var(--semantic-background-elevated-normal);
-  border-radius: 14px;
+  border-radius: 16px;
   box-shadow: inset 0 0 0 1px var(--semantic-line-normal-alternative);
   cursor: pointer;
   position: relative;
@@ -180,9 +180,9 @@ main {
 
 .icon-circle {
   flex-shrink: 0;
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
   background: var(--semantic-fill-normal);
   display: flex;
   align-items: center;
@@ -190,8 +190,8 @@ main {
 }
 
 .icon-circle img {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   object-fit: contain;
 }
 
@@ -202,9 +202,9 @@ main {
 }
 
 .text-container h3 {
-  margin: 0 0 2px;
+  margin: 0 0 3px;
   font-family: var(--font-family-base);
-  font-size: 14px;
+  font-size: 15.5px;
   font-weight: 600;
   letter-spacing: -0.002em;
   color: var(--semantic-label-normal);
@@ -213,7 +213,7 @@ main {
 
 .text-container p {
   margin: 0;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.4;
   color: var(--semantic-label-alternative);
   letter-spacing: 0.0096em;
